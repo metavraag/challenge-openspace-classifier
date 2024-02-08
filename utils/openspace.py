@@ -1,5 +1,5 @@
 import random
-from table import Table 
+from .table import Table 
 
 class Openspace:
     def __init__(self, number_of_tables, capacity_per_table):
