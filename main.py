@@ -1,6 +1,7 @@
 from utils.openspace import Openspace
 import configparser
-import json
+import argparse
+# import json
 
 def load_config(config_path):
     """Load configuration file."""
@@ -20,14 +21,28 @@ if __name__ == "__main__":
     # Load config
     config = load_config('config.ini')
     colleagues_file_path = config['DEFAULT']['ColleaguesFilePath']
+    number_of_tables = int(config['DEFAULT']['NumberOfTables'])
+    capacity_per_table = int(config['DEFAULT']['CapacityPerTable'])
+    
+
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(description="Organize seating arrangement for colleagues.")
+    # parser.add_argument("filepath", help="path to the configuration file")
+    parser.add_argument('-f', '--filepath', help='Path to the file containing the list of colleagues',
+                         default=colleagues_file_path)
+                        #  default='./data/new_colleagues.csv')
+
+    args = parser.parse_args()
+    if args.filepath:
+        colleagues_file_path = args.filepath
+        # config = load_config(args.filepath)
+        # colleagues_file_path = config['DEFAULT']['ColleaguesFilePath']
+
     
     # Load colleagues
     colleagues = load_colleagues(colleagues_file_path)
     
     # Setup and launch the organizer
-    number_of_tables = int(config['DEFAULT']['NumberOfTables'])
-    capacity_per_table = int(config['DEFAULT']['CapacityPerTable'])
-    
     openspace = Openspace(number_of_tables, capacity_per_table)
     openspace.organize(colleagues)
     
