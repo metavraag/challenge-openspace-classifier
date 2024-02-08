@@ -12,8 +12,8 @@ def load_colleagues(file_path):
     """Load colleagues' names from a file."""
     with open(file_path, 'r') as file:
         # Assuming the file contains names in a JSON array or one name per line
-        names = json.load(file)  # For JSON
-        # names = file.read().splitlines()  # For plaintext file with one name per line
+        # names = json.load(file)  # For JSON
+        names = file.read().splitlines()  # For plaintext file with one name per line
     return names
 
 if __name__ == "__main__":
