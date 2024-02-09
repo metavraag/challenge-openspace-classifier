@@ -31,32 +31,20 @@ class Openspace:
     def store(self, filename="seating.json"):
         """Stores the seating arrangement in an file."""
         state = {
-            'tables': [{'name': f"Table{i+1}", 'seats': table.to_dict()['seats']} for i, table in enumerate(self.tables)],
-            # 'tables': [table.to_dict() for table in self.tables],
+            'tables': [{'name': f"Table{i+1}", 'seats': table.to_dict()['seats']}
+                        for i, table in enumerate(self.tables)],
                   'waiting_list': self.waiting_list}
         with open(filename, 'w') as f:
             json.dump(state, f, indent=4)
 
-        # pass
-
     def report(self):
-        total_tables = len(self.tables)
-        seats_per_table = [len(table.seats) for table in self.tables]
-        total_seats = sum(seats_per_table)
         occupied_seats = sum(not seat.free for table in self.tables for seat in table.seats)
-        free_seats = total_seats - occupied_seats
+        free_seats = self.total_capacity- occupied_seats
         waiting_list_length = len(self.waiting_list)
 
         # General report
         print("Openspace Configuration Report:")
-        print(f"There are a total of {total_tables} tables with an overall seating capacity of {total_seats} seats.")
-        
-        if all(seat_count == seats_per_table[0] for seat_count in seats_per_table):
-            print(f"Each table has {seats_per_table[0]} seats.")
-        else:
-            seat_counts = ", ".join(str(count) for count in seats_per_table)
-            print(f"Tables have varying seat capacities: {seat_counts}.")
-        
+        print(f"There are a total of {self.number_of_tables} tables with an overall seating capacity of {self.total_capacity} seats.")
         print(f"Currently, {occupied_seats} seats are occupied and {free_seats} seats remain available.")
 
         # Waiting list report with names
