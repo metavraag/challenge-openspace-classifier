@@ -1,0 +1,134 @@
+{
+    "tables": [
+        {
+            "name": "Table1",
+            "seats": [
+                {
+                    "occupant": "Fabienne",
+                    "free": false
+                },
+                {
+                    "occupant": "Alfiya",
+                    "free": false
+                },
+                {
+                    "occupant": "Danil",
+                    "free": false
+                },
+                {
+                    "occupant": "Em",
+                    "free": false
+                }
+            ]
+        },
+        {
+            "name": "Table2",
+            "seats": [
+                {
+                    "occupant": "Miguel",
+                    "free": false
+                },
+                {
+                    "occupant": "Jens",
+                    "free": false
+                },
+                {
+                    "occupant": "Karel",
+                    "free": false
+                },
+                {
+                    "occupant": "Gerrit",
+                    "free": false
+                }
+            ]
+        },
+        {
+            "name": "Table3",
+            "seats": [
+                {
+                    "occupant": "Viktor",
+                    "free": false
+                },
+                {
+                    "occupant": "Sweta",
+                    "free": false
+                },
+                {
+                    "occupant": "Alice",
+                    "free": false
+                },
+                {
+                    "occupant": "Afaf",
+                    "free": false
+                }
+            ]
+        },
+        {
+            "name": "Table4",
+            "seats": [
+                {
+                    "occupant": "newNina",
+                    "free": false
+                },
+                {
+                    "occupant": "Yanina",
+                    "free": false
+                },
+                {
+                    "occupant": "Alexander",
+                    "free": false
+                },
+                {
+                    "occupant": "Daryoush",
+                    "free": false
+                }
+            ]
+        },
+        {
+            "name": "Table5",
+            "seats": [
+                {
+                    "occupant": "Mahsa",
+                    "free": false
+                },
+                {
+                    "occupant": "newDima",
+                    "free": false
+                },
+                {
+                    "occupant": "Ariana",
+                    "free": false
+                },
+                {
+                    "occupant": "Geraldine",
+                    "free": false
+                }
+            ]
+        },
+        {
+            "name": "Table6",
+            "seats": [
+                {
+                    "occupant": "Nasrin",
+                    "free": false
+                },
+                {
+                    "occupant": "Caroline",
+                    "free": false
+                },
+                {
+                    "occupant": "Ivan ",
+                    "free": false
+                },
+                {
+                    "occupant": "Andrea",
+                    "free": false
+                }
+            ]
+        }
+    ],
+    "waiting_list": [
+        "Nathalie",
+        "Niels"
+    ]
+}

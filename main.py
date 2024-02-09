@@ -2,14 +2,14 @@ from utils.openspace import Openspace
 import argparse
 import json
 
-def load_config(json_file_path):
+def load_config(json_file_path: str) -> dict:
     """Load configuration from a JSON file."""
     with open(json_file_path, 'r') as file:
         config = json.load(file)
     return config
 
 
-def load_colleagues(file_path):
+def load_colleagues(file_path: str) -> list[str]:
     """Load colleagues' names from a file."""
     with open(file_path, 'r') as file:
         names = file.read().splitlines()  
