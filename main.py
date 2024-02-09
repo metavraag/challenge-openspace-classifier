@@ -1,13 +1,20 @@
 from utils.openspace import Openspace
 import configparser
 import argparse
-# import json
+import json
 
-def load_config(config_path):
-    """Load configuration file."""
-    config = configparser.ConfigParser()
-    config.read(config_path)
+# def load_config(config_path):
+#     """Load configuration file."""
+#     config = configparser.ConfigParser()
+#     config.read(config_path)
+#     return config
+
+def load_config(json_file_path):
+    """Load configuration from a JSON file."""
+    with open(json_file_path, 'r') as file:
+        config = json.load(file)
     return config
+
 
 def load_colleagues(file_path):
     """Load colleagues' names from a file."""
@@ -19,11 +26,15 @@ def load_colleagues(file_path):
 
 if __name__ == "__main__":
     # Load config  defaults: 6 tables and 4 capacity per table, colleagues_file_path = './data/new_colleagues.csv'
-    config = load_config('config.ini')
-    colleagues_file_path = config['DEFAULT']['ColleaguesFilePath']
-    number_of_tables = int(config['DEFAULT']['NumberOfTables'])
-    capacity_per_table = int(config['DEFAULT']['CapacityPerTable'])
-    
+    # config = load_config('config.ini')
+    # colleagues_file_path = config['DEFAULT']['ColleaguesFilePath']
+    # number_of_tables = int(config['DEFAULT']['NumberOfTables'])
+    # capacity_per_table = int(config['DEFAULT']['CapacityPerTable'])
+
+    config = load_config('config.json')
+    number_of_tables = config['NumberOfTables']
+    capacity_per_table = config['CapacityPerTable']
+    colleagues_file_path = config['ColleaguesFilePath']    
 
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description="Organize seating arrangement for colleagues.")
