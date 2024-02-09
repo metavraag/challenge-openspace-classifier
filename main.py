@@ -62,3 +62,5 @@ if __name__ == "__main__":
     
     # Optionally, store the results in a file
     openspace.store()
+
+    openspace.report()

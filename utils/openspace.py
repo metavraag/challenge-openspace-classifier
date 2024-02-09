@@ -38,3 +38,30 @@ class Openspace:
             json.dump(state, f, indent=4)
 
         # pass
+
+    def report(self):
+        total_tables = len(self.tables)
+        seats_per_table = [len(table.seats) for table in self.tables]
+        total_seats = sum(seats_per_table)
+        occupied_seats = sum(not seat.free for table in self.tables for seat in table.seats)
+        free_seats = total_seats - occupied_seats
+        waiting_list_length = len(self.waiting_list)
+
+        # General report
+        print("Openspace Configuration Report:")
+        print(f"There are a total of {total_tables} tables with an overall seating capacity of {total_seats} seats.")
+        
+        if all(seat_count == seats_per_table[0] for seat_count in seats_per_table):
+            print(f"Each table has {seats_per_table[0]} seats.")
+        else:
+            seat_counts = ", ".join(str(count) for count in seats_per_table)
+            print(f"Tables have varying seat capacities: {seat_counts}.")
+        
+        print(f"Currently, {occupied_seats} seats are occupied and {free_seats} seats remain available.")
+
+        # Waiting list report with names
+        if waiting_list_length > 0:
+            waiting_names = ", ".join(self.waiting_list)
+            print(f"There are {waiting_list_length} people waiting for a seat: {waiting_names}.")
+        else:
+            print("There is no one on the waiting list at the moment.")
