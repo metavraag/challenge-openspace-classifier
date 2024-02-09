@@ -2,6 +2,8 @@
 
 ## Description
 
+![logo](data/test.jpg)
+
 The Open Space Organizer optimizes seating arrangements in open space environments, promoting interaction and collaboration. This tool uses Python to randomize seating, addressing the challenge of office space management efficiently.
 
 ## Installation
