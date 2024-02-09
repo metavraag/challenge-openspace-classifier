@@ -30,7 +30,10 @@ class Openspace:
 
     def store(self, filename="seating.json"):
         """Stores the seating arrangement in an file."""
-        state = {'tables': [table.to_dict() for table in self.tables], 'waiting_list': self.waiting_list}
+        state = {
+            'tables': [{'name': f"Table{i+1}", 'seats': table.to_dict()['seats']} for i, table in enumerate(self.tables)],
+            # 'tables': [table.to_dict() for table in self.tables],
+                  'waiting_list': self.waiting_list}
         with open(filename, 'w') as f:
             json.dump(state, f, indent=4)
 
