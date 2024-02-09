@@ -60,7 +60,7 @@ This displays and can save the seating arrangement.
 Make sure to follow updates for the application to stay informed about new features or changes to existing functionalities. This ensures you can leverage the full potential of the application as it evolves.
 ## Visuals
 
-( application screenshots or diagrams here.)
+![test](screen.jpg)
 
 ## Contributing
 
