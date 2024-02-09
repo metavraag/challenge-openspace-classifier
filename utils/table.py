@@ -23,6 +23,12 @@ class Seat:
             self.free = True
             return f"{occupant_name} has been removed from the seat."
 
+    def to_dict(self):
+        return {
+            'occupant': self.occupant,
+            'free': self.free
+        }
+
 
 class Table:
     def __init__(self, capacity):
@@ -44,4 +50,9 @@ class Table:
         """Returns the number of free spots available at the table."""
         return sum(seat.free for seat in self.seats)
 
+    def to_dict(self):
+        return {
+            # 'capacity': self.capacity,
+            'seats': [seat.to_dict() for seat in self.seats]
+        }
 

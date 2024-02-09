@@ -61,4 +61,4 @@ if __name__ == "__main__":
     openspace.display()
     
     # Optionally, store the results in a file
-    openspace.store('seating_arrangement.txt')
+    openspace.store()
