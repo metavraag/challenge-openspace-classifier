@@ -11,7 +11,7 @@ The Open Space Organizer optimizes seating arrangements in open space environmen
 1. Clone the repository:
 
 ```shell
-git clone https://github.com/yourusername/challenge-openspace-classifier.git 
+git clone https://github.com/metavraag/challenge-openspace-classifier.git 
 
 cd challenge-openspace-classifier
 ```
