@@ -1,4 +1,3 @@
-
 class Seat:
     def __init__(self):
         self.free = True
@@ -32,20 +31,18 @@ class Seat:
             return f"{occupant_name} has been removed from the seat."
 
     def to_dict(self):
-        return {
-            'occupant': self.occupant,
-            'free': self.free
-        }
+        return {"occupant": self.occupant, "free": self.free}
 
 
 class Table:
-    def __init__(self, capacity):
+    def __init__(self, capacity: int, name: str):
         """
         Initializes a Table object with the given capacity.
 
         :param capacity (int): The maximum number of seats at the table.
-
+        :param name (str): The name of the table.
         """
+        self.name = name
         self.capacity = capacity
         self.seats = [Seat() for _ in range(capacity)]
 
@@ -55,8 +52,8 @@ class Table:
 
         :return: A string describing the table and its occupants.
         """
-        occupants = ', '.join(str(seat) for seat in self.seats)
-        return f"Table {self.name}: {occupants}"
+        occupants = ", ".join(str(seat) for seat in self.seats)
+        return f"{self.name}: {occupants}"
 
     def has_free_spot(self):
         """Checks if there is at least one free spot at the table."""
@@ -80,7 +77,4 @@ class Table:
         Returns:
             dict: A dictionary representation of the Table object.
         """
-        return {
-            'seats': [seat.to_dict() for seat in self.seats]
-        }
-
+        return {"seats": [seat.to_dict() for seat in self.seats]}
